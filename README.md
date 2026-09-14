@@ -44,4 +44,44 @@ Clone the repository:
 ```bash
 git clone https://github.com/adityapandey7353/AI-Workout-Coach.git
 cd AI-Workout-Coach
+```
+Install the required dependencies:
+```
+pip install -r requirements.txt
 
+```
+Run the Application
+
+Start the Flask server:
+```
+python main.py
+```
+Then open this URL in your browser:
+```
+http://127.0.0.1:5000
+```
+Allow camera access when prompted.
+
+Currently, the application supports:
+
+Bicep Curls,
+Right arm tracking, 
+Left arm tracking, 
+Repetition counting, 
+Basic form analysis, 
+
+Future Improvements:
+
+Add more exercises, 
+Improve form detection, 
+Add workout history, 
+Add calorie estimation, 
+Add user profiles, 
+Add voice feedback, 
+Improve exercise recognition
+
+Author
+
+Aditya Pandey
+```
+GitHub: https://github.com/adityapandey7353
