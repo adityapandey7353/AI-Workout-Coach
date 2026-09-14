@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>AI Workout Coach</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- ================= HEADER ================= -->
+
+        <header class="header">
+
+            <div class="brand">
+
+                <h1>AI Workout Coach</h1>
+
+                <p>
+                    Real-time computer vision fitness assistant
+                </p>
+
+            </div>
+
+            <div class="camera-status">
+
+                <span class="status-dot"></span>
+
+                <span>Camera Active</span>
+
+            </div>
+
+        </header>
+
+
+        <!-- ================= MAIN ================= -->
+
+        <main class="main-content">
+
+
+            <!-- ================= CAMERA ================= -->
+
+            <section class="camera-section">
+
+                <div class="camera-card">
+
+                    <div class="camera-header">
+
+                        <div>
+                            <span class="live-dot"></span>
+                            LIVE ANALYSIS
+                        </div>
+
+                        <span id="exercise-label">
+                            Bicep Curl
+                        </span>
+
+                    </div>
+
+
+                    <div class="video-container">
+
+                        <img
+                            src="{{ url_for('video_feed') }}"
+                            id="video"
+                            alt="Workout camera feed"
+                        >
+
+                    </div>
+
+
+                    <div class="camera-footer">
+
+                        <span>
+                            MediaPipe Pose Detection
+                        </span>
+
+                        <span id="connection-status">
+                            Connected
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ================= DASHBOARD ================= -->
+
+            <aside class="dashboard">
+
+
+                <!-- Exercise -->
+
+                <div class="card exercise-card">
+
+                    <div class="card-label">
+                        CURRENT EXERCISE
+                    </div>
+
+                    <h2>
+                        Bicep Curl
+                    </h2>
+
+                    <div class="arm-selector">
+
+                        <button
+                            class="arm-button active"
+                            id="right-arm"
+                            onclick="selectArm('right')"
+                        >
+                            Right Arm
+                        </button>
+
+                        <button
+                            class="arm-button"
+                            id="left-arm"
+                            onclick="selectArm('left')"
+                        >
+                            Left Arm
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Reps -->
+
+                <div class="card reps-card">
+
+                    <div class="card-label">
+                        REPS
+                    </div>
+
+                    <div
+                        class="rep-number"
+                        id="reps"
+                    >
+                        0
+                    </div>
+
+                    <div class="rep-description">
+                        Completed repetitions
+                    </div>
+
+                </div>
+
+
+                <!-- Angle + Stage -->
+
+                <div class="stats-grid">
+
+
+                    <div class="card stat-card">
+
+                        <div class="card-label">
+                            ELBOW ANGLE
+                        </div>
+
+                        <div
+                            class="stat-value"
+                            id="angle"
+                        >
+                            0°
+                        </div>
+
+                    </div>
+
+
+                    <div class="card stat-card">
+
+                        <div class="card-label">
+                            STAGE
+                        </div>
+
+                        <div
+                            class="stat-value stage-value"
+                            id="stage"
+                        >
+                            Down
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+                <!-- Form -->
+
+                <div class="card form-card">
+
+                    <div class="form-header">
+
+                        <div>
+
+                            <div class="card-label">
+                                FORM STATUS
+                            </div>
+
+                            <h2 id="form-status">
+                                Good
+                            </h2>
+
+                        </div>
+
+                        <div
+                            class="form-icon"
+                            id="form-icon"
+                        >
+                            ✓
+                        </div>
+
+                    </div>
+
+                    <p id="form-message">
+                        Keep your movement controlled.
+                    </p>
+
+                </div>
+
+
+                <!-- Session -->
+
+                <div class="card session-card">
+
+                    <div class="card-label">
+                        SESSION
+                    </div>
+
+                    <div class="session-stats">
+
+                        <div>
+
+                            <span>Exercise</span>
+
+                            <strong>
+                                Bicep Curl
+                            </strong>
+
+                        </div>
+
+                        <div>
+
+                            <span>Reps</span>
+
+                            <strong id="session-reps">
+                                0
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </aside>
+
+        </main>
+
+    </div>
+
+
+    <!-- JavaScript -->
+
+    <script
+        src="{{ url_for('static', filename='script.js') }}">
+    </script>
+
+</body>
+
+</html>
